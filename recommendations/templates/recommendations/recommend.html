@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Recommendations</title>
+</head>
+<body>
+    <h1>Anime Recommendations</h1>
+    <form method="get" action="">
+        <label for="genre">Choose a genre:</label>
+        <input type="text" id="genre" name="genre" placeholder="e.g., Action">
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if recommendations %}
+        <h2>Recommended Animes:</h2>
+        <ul>
+            {% for anime in recommendations %}
+                <li>{{ anime.name }} - Rating: {{ anime.rating }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations available. Please select a genre.</p>
+    {% endif %}
+</body>
+</html>
